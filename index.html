@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Logger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🌍 Holiday Logger</h1>
+            <p class="subtitle">Track your daily recommended holidays by location</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Log a Holiday</h2>
+            <form id="holidayForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Country <span class="required">*</span></label>
+                        <input type="text" id="country" placeholder="e.g. France" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <input type="text" id="city" placeholder="e.g. Paris" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="holidayName">Holiday Name <span class="required">*</span></label>
+                        <input type="text" id="holidayName" placeholder="e.g. Bastille Day" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date <span class="required">*</span></label>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">Category <span class="required">*</span></label>
+                        <select id="category" required>
+                            <option value="">-- Select Category --</option>
+                            <option value="national">National</option>
+                            <option value="religious">Religious</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="regional">Regional</option>
+                            <option value="public">Public</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Budget Amount ($)</label>
+                        <input type="number" id="amount" placeholder="e.g. 500" min="0" step="0.01">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="note">Notes</label>
+                    <textarea id="note" placeholder="Add any notes about this holiday..." rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add Holiday</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="controls-section">
+            <div class="search-filter">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Search by name, city, or country...">
+                </div>
+                <div class="filter-group">
+                    <select id="filterCategory">
+                        <option value="">All Categories</option>
+                        <option value="national">National</option>
+                        <option value="religious">Religious</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="regional">Regional</option>
+                        <option value="public">Public</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="filterCountry">
+                        <option value="">All Countries</option>
+                    </select>
+                    <button id="clearFilters" class="btn btn-outline">Clear Filters</button>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <span id="totalCount">0 holidays logged</span>
+                <span id="totalBudget">Total Budget: $0.00</span>
+            </div>
+        </section>
+
+        <section class="log-section">
+            <div id="holidayLog">
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">🗓️</div>
+                    <h3>No holidays logged yet</h3>
+                    <p>Use the form above to add your first holiday recommendation!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Holiday Logger &copy; <span id="year"></span> | Organizing your world travels</p>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
